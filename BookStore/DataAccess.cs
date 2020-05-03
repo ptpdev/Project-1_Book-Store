@@ -146,11 +146,17 @@ namespace BookStore
                     string item3 = searchItem;
                     if (tableName == "Books")
                     {
-                        searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN = @item1 Or Title = @item2 Or Author = @item3);";
+                        //select* from table_name where name like '%value%'
+                        //searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN = @item1 Or Title = @item2 Or Author = @item3);";
+                        searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN like '%" + @item1 + "%' Or " +
+                            "Title like '%" + @item2 + "%' Or Author like '%" + @item3 + "%');";
+
                     }
                     else if (tableName == "Customers")
                     {
                         searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (Customer_Id = @item1 Or Customer_Name = @item2 Or Email = @item3);";
+                        searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (Customer_Id like '%" + @item1 + "%' Or " +
+                            "Customer_Name like '%" + @item2 + "%' Or Email like '%" + @item3 + "%');";
                     }
                     searchCommand.Parameters.AddWithValue("@item1", searchItem);
                     searchCommand.Parameters.AddWithValue("@item2", searchItem);
@@ -158,7 +164,8 @@ namespace BookStore
                 }
                 else
                 {
-                    searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (" + searchField + " = @searchItem);";
+                    searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE " + searchField + " like '%" + @searchItem + "%';";
+                    //searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE " + searchField + " = @searchItem;";
                     searchCommand.Parameters.AddWithValue("@searchItem", searchItem);
                 }
                 searchCommand.Connection = db;
@@ -215,7 +222,7 @@ namespace BookStore
                 }
                 if (tableName == "Customers")
                 {
-                    int customerId = int.Parse(key);
+                    string customerId = key;
                     string customerName = input1;
                     string address = input2;
                     string email = input3;
@@ -241,15 +248,13 @@ namespace BookStore
 
                 if (tableName == "Books")
                 {
-                    string ISBN = deleteKey;
                     deleteDataCommand.CommandText = "Delete From Books Where ISBN = @ISBN;";
-                    deleteDataCommand.Parameters.AddWithValue("@ISBN", ISBN);
+                    deleteDataCommand.Parameters.AddWithValue("@ISBN", deleteKey);
                 }
                 if (tableName == "Customers")
                 {
-                    string email = deleteKey;
-                    deleteDataCommand.CommandText = "Delete From Customers Where Email = @Email);";
-                    deleteDataCommand.Parameters.AddWithValue("@Email", email);
+                    deleteDataCommand.CommandText = "Delete From Customers Where Customer_Id = @Customer_Id);";
+                    deleteDataCommand.Parameters.AddWithValue("@Customer_Id", deleteKey);
                 }
                 deleteDataCommand.ExecuteReader();
                 db.Close();

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="CustomersMenu" Height="450" Width="800" Loaded="CustomersMenu_Loaded">
+        Title="จัดการลูกค้า" Height="450" Width="800" Loaded="CustomersMenu_Loaded" ResizeMode="CanMinimize">
     <Grid>
         <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Height="27" Margin="153,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
         <Label x:Name="searchLabel" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="26,43,0,0" VerticalAlignment="Top" Width="38"/>

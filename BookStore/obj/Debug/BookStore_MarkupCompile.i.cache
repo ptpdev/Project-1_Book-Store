@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\BookStore\obj\Debug\
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\
 BookStore
 none
 false
 DEBUG;TRACE
-C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\BookStore\App.xaml
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\App.xaml
 7-578649022
-31057852927
+365987983
 15494491374
-127419640745
+127-696095367
 BookPurchase.xaml;BooksMenu.xaml;CustomersMenu.xaml;LoginMenuPage.xaml;MainMenuPage.xaml;MainWindow.xaml;PurchaseSummary.xaml;
 
-True
+False
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="PurchaseSummary" Height="460" Width="500">
+        Title="สรุปรายการสั่งซื้อ" Height="460" Width="500" ResizeMode="CanMinimize">
     <Grid Margin="0,0,-6,-0.8">
         <Button x:Name="exitBtn" Content="ปิดหน้าต่าง" HorizontalAlignment="Left" Height="40" Margin="161,367,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.189,0.61" Click="purchaseConfirmBtn_Click" FontSize="16"/>
         <Label Content="สรุปรายการสั่งซื้อ" HorizontalAlignment="Left" Height="45" Margin="161,10,0,0" VerticalAlignment="Top" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
