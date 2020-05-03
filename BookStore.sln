@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore", "BookStore\BookStore.csproj", "{03BC0892-D5A3-42B7-BE8B-5C04B1BDDCE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD8D6902-3362-4414-A7F5-33930730441B}"
+	ProjectSection(SolutionItems) = preProject
+		BookStore\bin\Debug\DataStorage.db = BookStore\bin\Debug\DataStorage.db
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03BC0892-D5A3-42B7-BE8B-5C04B1BDDCE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BC0892-D5A3-42B7-BE8B-5C04B1BDDCE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BC0892-D5A3-42B7-BE8B-5C04B1BDDCE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BC0892-D5A3-42B7-BE8B-5C04B1BDDCE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E5F1569-E456-493C-9BAB-FB39E4D45847}
+	EndGlobalSection
+EndGlobal
