@@ -45,12 +45,11 @@ namespace BookStore
         private void isbnSearchBtn_Click(object sender, RoutedEventArgs e)
         {
             string searchItem = isbnTxt.Text;
-            string searchField = "ISBN";
-            bookquantity = 1;
+            string searchField = "ISBN";            
             quantityTxt.Text = bookquantity.ToString();
             List<string> dataFound = new List<string>();
             List<string> searchResult = new List<string>();
-            searchResult = DataAccess.SearchItem("Books", searchField, searchItem);
+            searchResult = DataAccess.SearchItemExact("Books", searchField, searchItem);
             foreach (string ee in searchResult)
             {
                 dataFound.Add(ee);
@@ -69,6 +68,7 @@ namespace BookStore
                 bookvalid = true;
                 isbn = dataShow[0];
                 price = float.Parse(dataShow[4]);
+                bookquantity = 1;
             }
         }
 
@@ -110,7 +110,7 @@ namespace BookStore
             string searchField = "Customer_Id";
             List<string> dataFound = new List<string>();
             List<string> searchResult = new List<string>();
-            searchResult = DataAccess.SearchItem("Customers", searchField, searchItem);
+            searchResult = DataAccess.SearchItemExact("Customers", searchField, searchItem);
             foreach (string ee in searchResult)
             {
                 dataFound.Add(ee);
@@ -128,15 +128,14 @@ namespace BookStore
                 descriptionTxt.Content = dataShow[3];
                 priceTxt.Content = dataShow[4];*/
                 customervalid = true;
-                customerId = dataShow[0];
-                order.CustomerId = customerId;
+                order.CustomerId = dataShow[0];
 
             }
         }
 
         private void addToCartBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (bookvalid && customervalid)
+            if (bookvalid)
             {
                 title = titleTxt.Content.ToString();
                 sumPrice = bookquantity * price;
@@ -159,7 +158,7 @@ namespace BookStore
             }
             else
             {
-                MessageBox.Show("Invalid Purchase.");
+                MessageBox.Show("กรุณาเลือกหนังสือ");
             }
         }
 
@@ -208,15 +207,15 @@ namespace BookStore
                             if (a != null)
                             {
                                 string isbn = a.Isbn;
-                                string customerId = this.customerId;
                                 int bookquantity = a.Quantity;
                                 float sumPrice = a.SumPrice;
                                 //MessageBox.Show(isbn + customerId + bookquantity + sumPrice + getDate() + order.Cashier);
-                                DataAccess.AddData("Transactions", isbn, customerId, bookquantity, sumPrice, getDate(), order.Cashier);
+                                DataAccess.AddData("Transactions", isbn, order.CustomerId, bookquantity, sumPrice, getDate(), order.Cashier);
                             }
                         }
                         PurchaseSummary purchaseSummary = new PurchaseSummary(purchaseList, order);
                         purchaseSummary.Show();
+                        this.Close();
                         break;
 
                     case MessageBoxResult.Cancel:

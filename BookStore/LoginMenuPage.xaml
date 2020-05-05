@@ -11,8 +11,8 @@
 
     <Grid Background="#FF71DC7A" Margin="0,0,0,-50.4" Height="500" VerticalAlignment="Top">
 
-        <Label x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="712,412,0,36" Width="60" KeyUp="helpBtn_KeyUp"/>
-        <GroupBox x:Name="loginGroupBox" Header="Login" HorizontalAlignment="Left" Height="199" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.193,0.178" Margin="190,115,0,0">
+        <Label x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="724,420,0,48" Width="38" KeyUp="helpBtn_KeyUp"/>
+        <GroupBox x:Name="loginGroupBox" Header="Login" HorizontalAlignment="Left" Height="199" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.193,0.178" Margin="196,108,0,0">
             <GroupBox.DataContext>
                 <CodeDom:CodeLabeledStatement/>
             </GroupBox.DataContext>

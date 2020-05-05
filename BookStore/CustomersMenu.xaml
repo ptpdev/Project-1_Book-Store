@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
         Title="จัดการลูกค้า" Height="450" Width="800" Loaded="CustomersMenu_Loaded" ResizeMode="CanMinimize">
     <Grid>
         <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Height="27" Margin="153,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
@@ -14,9 +14,9 @@
         <ListView Margin="69,86,423.6,128" x:Name="customersListView" SelectionChanged="customersListView_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="รหัสสมาชิก" Width="100" DisplayMemberBinding="{Binding CustomerId}" />
-                    <GridViewColumn Header="ชื่อลูกค้า" Width="100" DisplayMemberBinding="{Binding CustomerName}" />
-                    <GridViewColumn Header="ที่อยู่" Width="100" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="รหัสสมาชิก" Width="70" DisplayMemberBinding="{Binding CustomerId}" />
+                    <GridViewColumn Header="ชื่อลูกค้า" Width="120" DisplayMemberBinding="{Binding CustomerName}" />
+                    <GridViewColumn Header="ที่อยู่" Width="120" DisplayMemberBinding="{Binding Address}" />
                     <GridViewColumn Header="E-mail" Width="100" DisplayMemberBinding="{Binding Email}" />
                     <GridView.ColumnHeaderContainerStyle>
                         <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -26,17 +26,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="413,258,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="15"/>
-        <TextBox x:Name="customerIdTextBox" HorizontalAlignment="Left" Height="27" Margin="524,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="10" MaxLength="6" PreviewLostKeyboardFocus="customerIdTextBox_PreviewLostKeyboardFocus"/>
-        <TextBox x:Name="customerNameTextBox" HorizontalAlignment="Left" Height="27" Margin="524,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="11"/>
-        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="27" Margin="524,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="13"/>
+        <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="413,258,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="5"/>
+        <TextBox x:Name="customerIdTextBox" HorizontalAlignment="Left" Height="27" Margin="524,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="1" MaxLength="6" PreviewLostKeyboardFocus="customerIdTextBox_PreviewLostKeyboardFocus" ToolTip="รหัสสมาชิกยาวไม่เกิน 6 หลัก"/>
+        <TextBox x:Name="customerNameTextBox" HorizontalAlignment="Left" Height="27" Margin="524,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="2"/>
+        <TextBox x:Name="emailTextBox" HorizontalAlignment="Left" Height="27" Margin="524,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="4"/>
         <Label x:Name="customerIdLabel" Content="รหัสสมาชิก" HorizontalAlignment="Left" Height="27" Margin="413,86,0,0" VerticalAlignment="Top" Width="96"/>
         <Label x:Name="customerNameLabel" Content="ชื่อ" HorizontalAlignment="Left" Height="27" Margin="413,118,0,0" VerticalAlignment="Top" Width="96"/>
         <Label x:Name="emailLabel1" Content="E-mail" HorizontalAlignment="Left" Height="27" Margin="413,184,0,0" VerticalAlignment="Top" Width="96"/>
-        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="27" Margin="524,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="12"/>
+        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="27" Margin="524,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="3"/>
         <Label x:Name="addressLabel" Content="ที่อยู่" HorizontalAlignment="Left" Height="27" Margin="413,151,0,0" VerticalAlignment="Top" Width="96"/>
-        <Button x:Name="editBtn" Content="แก้ไขข้อมูล" HorizontalAlignment="Left" Height="34" Margin="524,258,0,0" VerticalAlignment="Top" Width="85" TabIndex="15" Click="editBtn_Click"/>
-        <Button x:Name="deleteBtn" Content="ลบข้อมูล" HorizontalAlignment="Left" Height="34" Margin="633,258,0,0" VerticalAlignment="Top" Width="85" Click="deleteBtn_Click" TabIndex="15"/>
+        <Button x:Name="editBtn" Content="แก้ไขข้อมูล" HorizontalAlignment="Left" Height="34" Margin="524,258,0,0" VerticalAlignment="Top" Width="85" TabIndex="6" Click="editBtn_Click"/>
+        <Button x:Name="deleteBtn" Content="ลบข้อมูล" HorizontalAlignment="Left" Height="34" Margin="633,258,0,0" VerticalAlignment="Top" Width="85" Click="deleteBtn_Click" TabIndex="7"/>
 
     </Grid>
 </Window>

@@ -9,7 +9,7 @@ namespace BookStore
 {
     class DataAccess
     {
-        private static string dbpath = "DataStorage.db";
+        private static string dbpath = "DB_DataStorage.db";
         private static string searchResult = "";
         public static void InitializeDatabase()
         {
@@ -130,7 +130,7 @@ namespace BookStore
                 db.Close();
             }
         }
-            public static List<String> SearchItem(string tableName, string searchField, string searchItem)
+        public static List<String> SearchItem(string tableName, string searchField, string searchItem)
         {
             List<String> entries = new List<string>();
             using (SqliteConnection db =
@@ -149,14 +149,14 @@ namespace BookStore
                         //select* from table_name where name like '%value%'
                         //searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN = @item1 Or Title = @item2 Or Author = @item3);";
                         searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN like '%" + @item1 + "%' Or " +
-                            "Title like '%" + @item2 + "%' Or Author like '%" + @item3 + "%');";
+                            "Title like '%" + @item2 + "%' Or Author like '%" + @item3 + "%') Order by ISBN;";
 
                     }
                     else if (tableName == "Customers")
                     {
                         searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (Customer_Id = @item1 Or Customer_Name = @item2 Or Email = @item3);";
                         searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (Customer_Id like '%" + @item1 + "%' Or " +
-                            "Customer_Name like '%" + @item2 + "%' Or Email like '%" + @item3 + "%');";
+                            "Customer_Name like '%" + @item2 + "%' Or Email like '%" + @item3 + "%') Order by Customer_Id;";
                     }
                     searchCommand.Parameters.AddWithValue("@item1", searchItem);
                     searchCommand.Parameters.AddWithValue("@item2", searchItem);
@@ -188,6 +188,43 @@ namespace BookStore
                         i++;
                     }
                     //entries.Add(query.GetString(0) + "," + query.GetString(1) + "," + query.GetString(2) + "," + query.GetString(3) + "," + query.GetString(4));
+                    entries.Add(searchResult);
+                }
+                db.Close();
+            }
+            return entries;
+        }
+        public static List<String> SearchItemExact(string tableName, string searchField, string searchItem)
+        {
+            List<String> entries = new List<string>();
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                SqliteCommand searchCommand = new SqliteCommand();
+
+                searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE " + searchField + " = @searchItem;";
+                searchCommand.Parameters.AddWithValue("@searchItem", searchItem);
+
+                searchCommand.Connection = db;
+                SqliteDataReader query = searchCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    int i = 0;
+                    searchResult = "";
+                    while (i < query.FieldCount)
+                    {
+                        if (i == 0)
+                        {
+                            searchResult += query.GetString(i);
+                        }
+                        else
+                        {
+                            searchResult += "," + query.GetString(i);
+                        }
+                        i++;
+                    }
                     entries.Add(searchResult);
                 }
                 db.Close();

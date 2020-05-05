@@ -36,14 +36,6 @@ namespace BookStore
             searchList.Items.Add("ชื่อลูกค้า");
             searchList.Items.Add("Email");
             searchList.Text = "ทั้งหมด";
-
-            /*customerList = new List<CustomerList>();
-
-            customerList.Add(new CustomerList("001", "Piti", "asdasd@gmail.com"));
-            customerList.Add(new CustomerList("005", "Upza", "za007@gmail.com"));
-
-            customersListView.ItemsSource = customerList;*/
-
         }
         public class Table
         {
@@ -123,12 +115,7 @@ namespace BookStore
                 for (int j = 0; j < numberOfList; j++)
                 {
                     string[] dataShow = dataFound[j].Split(',');
-                    /*customerIdTextBox.Text = dataShow[0];
-                    customerNameTextBox.Text = dataShow[1];
-                    addressTextBox.Text = dataShow[2];
-                    emailTextBox.Text = dataShow[3];*/
-                    //items.Add(new Table() { customerId = dataShow[0], customerName = dataShow[1], email = dataShow[3] });
-                    dataShow[0] = dataShow[0].PadLeft(6, '0');
+                    //dataShow[0] = dataShow[0].PadLeft(6, '0');
                     customerList.Add(new DataList(dataShow[0], dataShow[1], dataShow[2], dataShow[3]));
                 }
                 customersListView.ItemsSource = customerList;

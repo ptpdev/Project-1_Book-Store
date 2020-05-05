@@ -21,11 +21,16 @@ namespace BookStore
     public partial class MainMenu : Page
     {
         private string username;
+        public static bool bookMenuBtnEnable;
         public MainMenu(string username)
         {
             InitializeComponent();
             usernameLabel.Content = "User : " + username;
             this.username = username;
+            if (username == "admin")
+            {
+                btnAdmin.Visibility = Visibility.Visible;
+            }
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
@@ -38,12 +43,15 @@ namespace BookStore
         {
             BooksMenu booksMenu = new BooksMenu();
             booksMenu.Show();
+            bookMenuBtnEnable = false;
+            BooksMgtBtn.IsEnabled = bookMenuBtnEnable;
         }
 
         private void customersMgtBtn_Click(object sender, RoutedEventArgs e)
         {
             CustomersMenu customersMenu = new CustomersMenu();
             customersMenu.Show();
+            customersMgtBtn.IsEnabled = false;
         }
 
         private void buyBtn_Click(object sender, RoutedEventArgs e)
@@ -51,5 +59,19 @@ namespace BookStore
             BookPurchase bookPurchase = new BookPurchase(username);
             bookPurchase.Show();
         }
+
+        public static void changeBookBtn(bool isEnable)
+        {
+            //customersMgtBtn.IsEnabled = isEnable;
+            bookMenuBtnEnable = true;
+        }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeRegister employeeRegister = new EmployeeRegister();
+            employeeRegister.Show();
+        }
     }
+
+
 }

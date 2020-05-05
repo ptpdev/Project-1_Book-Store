@@ -25,12 +25,10 @@ namespace BookStore
         {
             InitializeComponent();
             DataAccess.InitializeDatabase();
+            LoginSystem.InitializeLoginSystem();
             LoginMenu loginMenu = new LoginMenu();
             mainFrame.NavigationService.Navigate(loginMenu);
-
-
-        }
-
-        
+            
+        }  
     }
 }

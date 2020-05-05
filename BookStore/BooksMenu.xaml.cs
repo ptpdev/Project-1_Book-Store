@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel; // CancelEventArgs
 
 namespace BookStore
 {
@@ -116,10 +117,10 @@ namespace BookStore
             }
             else
             {
-                foreach(string ee in searchResult)
+                /*foreach(string ee in searchResult)
                 {
                     MessageBox.Show(ee);
-                }
+                }*/
 
                 if (Dialog.Confirm("Edit"))
                 {
@@ -151,7 +152,11 @@ namespace BookStore
             }
 
         }
-
+        //public event System.ComponentModel.CancelEventHandler Closing;
+        public void BooksMenu_Closing(object sender, CancelEventArgs e)
+        {
+            MainMenu.changeBookBtn(true);
+        }
 
     }
 }

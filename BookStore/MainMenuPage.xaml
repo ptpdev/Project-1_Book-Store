@@ -13,9 +13,10 @@
             <RowDefinition Height="500"/>
         </Grid.RowDefinitions>
         <Button x:Name="customersMgtBtn" Content="จัดการลูกค้า" HorizontalAlignment="Left" Height="38" Margin="119,150,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.698,-0.947" Click="customersMgtBtn_Click"/>
-        <Button x:Name="BooksMgtBtn" Content="จัดการหนังสือ" HorizontalAlignment="Left" Height="38" Margin="352,150,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.757,0.484" Click="BooksMgtBtn_Click"/>
+        <Button x:Name="BooksMgtBtn" x:FieldModifier="public" Content="จัดการหนังสือ" HorizontalAlignment="Left" Height="38" Margin="352,150,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.757,0.484" Click="BooksMgtBtn_Click"/>
         <Button x:Name="buyBtn" Content="สั่งซื้อหนังสือ" HorizontalAlignment="Left" Height="38" Margin="573,150,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.783,0.695" Click="buyBtn_Click"/>
-        <Button x:Name="logoutBtn" Content="ออกจากระบบ" HorizontalAlignment="Left" Height="44" Margin="629,412,0,0" VerticalAlignment="Top" Width="117" Click="logoutBtn_Click"/>
-        <Label x:Name="usernameLabel" Content="User : " HorizontalAlignment="Left" Height="34" Margin="598,10,0,0" VerticalAlignment="Top" Width="192"/>
+        <Button x:Name="logoutBtn" Content="ออกจากระบบ" HorizontalAlignment="Left" Height="31" Margin="690,23,0,0" VerticalAlignment="Top" Width="83" Click="logoutBtn_Click" RenderTransformOrigin="0.735,-7.927"/>
+        <Label x:Name="usernameLabel" Content="User : " HorizontalAlignment="Left" Height="31" Margin="508,23,0,0" VerticalAlignment="Top" Width="166"/>
+        <Button x:Name="btnAdmin" Content="For admin" HorizontalAlignment="Left" Height="27" Margin="68,421,0,0" VerticalAlignment="Top" Width="78" Click="btnAdmin_Click" Visibility="Hidden"/>
     </Grid>
 </Page>

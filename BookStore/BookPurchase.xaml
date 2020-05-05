@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="สั่งซื้อหนังสือ" Height="500" Width="850" ResizeMode="CanMinimize">
     <Grid>
-        <TextBox x:Name="isbnTxt" HorizontalAlignment="Left" Height="27" Margin="81,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="isbnTxt" HorizontalAlignment="Left" Height="27" Margin="81,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" VerticalContentAlignment="Center" MaxLength="13"/>
         <Label x:Name="isbnLabel" Content="ISBN" HorizontalAlignment="Left" Height="27" Margin="40,44,0,0" VerticalAlignment="Top" Width="36"/>
         <Button x:Name="isbnSearchBtn" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="225,44,0,0" VerticalAlignment="Top" Width="43" Click="isbnSearchBtn_Click"/>
         <Label x:Name="titleLabel" Content="ชื่อหนังสือ" HorizontalAlignment="Left" Height="27" Margin="41,86,0,0" VerticalAlignment="Top" Width="96"/>
@@ -44,7 +44,7 @@
         <Label x:Name="priceTxt" Content="" HorizontalAlignment="Left" Height="27" Margin="137,186,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="authorTxt" Content="" HorizontalAlignment="Left" Height="27" Margin="137,119,0,0" VerticalAlignment="Top" Width="194" VerticalContentAlignment="Center"/>
         <Label x:Name="descriptionTxt" Content="" HorizontalAlignment="Left" Height="27" Margin="137,152,0,0" VerticalAlignment="Top" Width="194" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="customerIdTxt" HorizontalAlignment="Left" Height="27" Margin="414,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="customerIdTxt" HorizontalAlignment="Left" Height="27" Margin="414,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" VerticalContentAlignment="Center" MaxLength="6"/>
         <Label x:Name="customerIdLabel" Content="รหัสสมาชิก" HorizontalAlignment="Left" Height="27" Margin="345,45,0,0" VerticalAlignment="Top" Width="64"/>
         <Button x:Name="customerIdSearchBtn" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="558,44,0,0" VerticalAlignment="Top" Width="43" Click="customerIdSearchBtn_Click"/>
         <Label x:Name="customerNameLabel" Content="ชื่อลูกค้า" HorizontalAlignment="Left" Height="27" Margin="343,86,0,0" VerticalAlignment="Top" Width="64"/>
@@ -65,7 +65,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="purchaseBtn" Content="ยืนยันคำสั่งซื้อ" HorizontalAlignment="Left" Height="28" Margin="632,335,0,0" VerticalAlignment="Top" Width="96" Click="purchaseBtn_Click"/>
+        <Button x:Name="purchaseBtn" Content="ยืนยันคำสั่งซื้อ" HorizontalAlignment="Left" Height="28" Margin="601,332,0,0" VerticalAlignment="Top" Width="124" Click="purchaseBtn_Click"/>
         <Label x:Name="totalPriceLabel" Content="ราคารวมทั้งหมด" HorizontalAlignment="Left" Height="33" Margin="475,286,0,0" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.612,0.36" FontSize="18"/>
         <Label x:Name="totalPriceTxt" Content="" HorizontalAlignment="Left" Height="33" Margin="601,286,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.612,0.36" Background="#FFEAEAEA" HorizontalContentAlignment="Right" FontSize="18"/>
         <Label x:Name="bahtUnitLabel" Content="บาท" HorizontalAlignment="Left" Height="33" Margin="730,286,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.612,0.36" FontSize="18"/>

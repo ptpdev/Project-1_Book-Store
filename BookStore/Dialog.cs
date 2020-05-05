@@ -17,7 +17,7 @@ namespace BookStore
             {
                 return true;
             }
-            else return false;
+            return false;
            
         }
     }

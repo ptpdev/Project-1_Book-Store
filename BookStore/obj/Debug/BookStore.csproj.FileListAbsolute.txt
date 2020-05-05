@@ -88,3 +88,5 @@ C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookSto
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore.csproj.CopyComplete
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore.exe
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore.pdb
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\EmployeeRegister.g.cs
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\EmployeeRegister.baml

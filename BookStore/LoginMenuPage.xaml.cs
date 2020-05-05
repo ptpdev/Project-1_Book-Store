@@ -39,31 +39,29 @@ namespace BookStore
             password = passwordBox.Password;
             if (loginCounter >= 3)
             {
-                MessageBox.Show("System locked.");
+                MessageBox.Show("System locked due to too many wrong password input");
             }
             else
             {
-                if (validateUser(username, password))
+                if (LoginSystem.checkPassword(username, password))
                 {
                     MainMenu mainMenu = new MainMenu(username);
                     //mainMenu.username.Content = "User : " + username;
                     this.NavigationService.Navigate(mainMenu);
                     loginCounter = 0;
                 }
+                else
+                {
+                    MessageBox.Show("User not found or Password incorrect.\n Remaining attempt : " + (2-loginCounter).ToString());
+                }
             }
             loginCounter++;
         }
-        private bool validateUser(string user, string pass)
-        {
-            if (user == "admin" && pass == "*")
-            {
-                return true;
-            }
-            return false;
-        }
+
         private void helpBtn_KeyUp(object sender, KeyEventArgs e)
         {
             loginCounter = 0;
+            MessageBox.Show("Reset system locked.");
         }
 
         private void passwordBox_KeyDown(object sender, KeyEventArgs e)

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
+        Closing="BooksMenu_Closing" 
         Title="จัดการหนังสือ" Height="500" Width="800" ResizeMode="CanMinimize">
     <Grid Width="800" Height="500" Margin="0,0,-6.4,-80" VerticalAlignment="Top">
         <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="413,258,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="15"/>
@@ -23,7 +24,7 @@
         <ListView Margin="69,86,430,208" x:Name="booksListView" PreviewMouseLeftButtonDown="booksListView_PreviewMouseLeftButtonDown">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ISBN" Width="100" DisplayMemberBinding="{Binding ISBN}" />
+                    <GridViewColumn Header="ISBN" Width="100" DisplayMemberBinding="{Binding Isbn}" />
                     <GridViewColumn Header="ชื่อหนังสือ" Width="100" DisplayMemberBinding="{Binding Title}" />
                     <GridViewColumn Header="ชื่อผู้แต่ง" Width="100" DisplayMemberBinding="{Binding Author}" />
                     <GridViewColumn Header="คำอธิบาย" Width="100" DisplayMemberBinding="{Binding Description}" />
