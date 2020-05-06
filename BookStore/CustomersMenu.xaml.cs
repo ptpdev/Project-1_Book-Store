@@ -22,7 +22,7 @@ namespace BookStore
     {
         //List<CustomerList> customerList;
 
-        private List<String> searchResult;
+        private List<List<string>> searchResult;
         private string tableName = "Customers";
         private string customerId;
         public CustomersMenu()
@@ -49,7 +49,7 @@ namespace BookStore
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            searchResult = DataAccess.SearchItem(tableName, "Customer_Id", customerIdTextBox.Text);
+            searchResult = DataAccess.SearchItemExact(tableName, "Customer_Id", customerIdTextBox.Text);
             if (!searchResult.Any())
             {
                 DataAccess.AddData(tableName, customerIdTextBox.Text, customerNameTextBox.Text, addressTextBox.Text, emailTextBox.Text, "");
@@ -66,7 +66,6 @@ namespace BookStore
         {
             string searchItem = searchTextBox.Text;
             string searchField = searchList.Text;
-            List<string> searchResult = new List<string>();
 
             if (searchField == "รหัสสมาชิก")
             {
@@ -94,13 +93,13 @@ namespace BookStore
             else { MessageBox.Show("Search Error."); }
         }
 
-        public void dataSearchShow(List<string> searchResult)
+        public void dataSearchShow(List<List<string>> searchResult)
         {
-            List<String> dataFound = new List<string>();
+            List<List<string>> dataFound = new List<List<string>>();
             int i = 0;
-            foreach (string ee in searchResult)
+            foreach (List<string> searchItem in searchResult)
             {
-                dataFound.Add(ee);
+                dataFound.Add(searchItem);
                 i++;
             }
             if (dataFound.Count == 0)
@@ -114,9 +113,7 @@ namespace BookStore
                 int numberOfList = dataFound.Count();
                 for (int j = 0; j < numberOfList; j++)
                 {
-                    string[] dataShow = dataFound[j].Split(',');
-                    //dataShow[0] = dataShow[0].PadLeft(6, '0');
-                    customerList.Add(new DataList(dataShow[0], dataShow[1], dataShow[2], dataShow[3]));
+                    customerList.Add(new DataList(dataFound[j][0], dataFound[j][1], dataFound[j][2], dataFound[j][3]));
                 }
                 customersListView.ItemsSource = customerList;
             }
@@ -124,7 +121,6 @@ namespace BookStore
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<String> searchResult;
             searchResult = DataAccess.SearchItem(tableName, "Customer_Id", customerIdTextBox.Text);
             if (!searchResult.Any())
             {
@@ -132,10 +128,6 @@ namespace BookStore
             }
             else
             {
-                foreach (string ee in searchResult)
-                {
-                    MessageBox.Show(ee);
-                }
                 if (Dialog.Confirm("Edit"))
                 {
                     DataAccess.UpdateData(tableName, customerIdTextBox.Text, customerNameTextBox.Text, addressTextBox.Text, emailTextBox.Text, "");

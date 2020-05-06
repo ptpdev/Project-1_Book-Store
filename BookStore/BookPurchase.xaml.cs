@@ -32,6 +32,7 @@ namespace BookStore
         private string date;
 
         List<PurchaseList> purchaseList = new List<PurchaseList>();
+        List<List<string>> searchResult = new List<List<string>>();
         PurchaseList order = new PurchaseList();
 
         public BookPurchase(string cashier)
@@ -47,12 +48,12 @@ namespace BookStore
             string searchItem = isbnTxt.Text;
             string searchField = "ISBN";            
             quantityTxt.Text = bookquantity.ToString();
-            List<string> dataFound = new List<string>();
-            List<string> searchResult = new List<string>();
+
             searchResult = DataAccess.SearchItemExact("Books", searchField, searchItem);
-            foreach (string ee in searchResult)
+            List<List<string>> dataFound = new List<List<string>>();
+            foreach (List<string> item in searchResult)
             {
-                dataFound.Add(ee);
+                dataFound.Add(item);
             }
             if (!dataFound.Any())
             {
@@ -60,14 +61,13 @@ namespace BookStore
             }
             else
             {
-                string[] dataShow = dataFound[0].Split(',');
-                titleTxt.Content = dataShow[1];
-                authorTxt.Content = dataShow[2];
-                descriptionTxt.Content = dataShow[3];
-                priceTxt.Content = dataShow[4];
+                titleTxt.Content = dataFound[0][1];
+                authorTxt.Content = dataFound[0][2];
+                descriptionTxt.Content = dataFound[0][3];
+                priceTxt.Content = dataFound[0][4];
                 bookvalid = true;
-                isbn = dataShow[0];
-                price = float.Parse(dataShow[4]);
+                isbn = dataFound[0][0];
+                price = float.Parse(dataFound[0][4]);
                 bookquantity = 1;
             }
         }
@@ -108,12 +108,11 @@ namespace BookStore
         {
             string searchItem = customerIdTxt.Text;
             string searchField = "Customer_Id";
-            List<string> dataFound = new List<string>();
-            List<string> searchResult = new List<string>();
+            List<List<string>> dataFound = new List<List<string>>();
             searchResult = DataAccess.SearchItemExact("Customers", searchField, searchItem);
-            foreach (string ee in searchResult)
+            foreach (List<string> item in searchResult)
             {
-                dataFound.Add(ee);
+                dataFound.Add(item);
             }
             if (!dataFound.Any())
             {
@@ -121,14 +120,10 @@ namespace BookStore
             }
             else
             {
-                string[] dataShow = dataFound[0].Split(',');
-                customerNameTxt.Content = dataShow[1];
-                order.CustomerName = dataShow[1];
-                /*authorTxt.Content = dataShow[2];
-                descriptionTxt.Content = dataShow[3];
-                priceTxt.Content = dataShow[4];*/
+                customerNameTxt.Content = dataFound[0][1];
+                order.CustomerName = dataFound[0][1];
                 customervalid = true;
-                order.CustomerId = dataShow[0];
+                order.CustomerId = dataFound[0][0];
 
             }
         }

@@ -10,7 +10,6 @@ namespace BookStore
     class DataAccess
     {
         private static string dbpath = "DB_DataStorage.db";
-        private static string searchResult = "";
         public static void InitializeDatabase()
         {
             using (SqliteConnection db =
@@ -97,11 +96,6 @@ namespace BookStore
         }
 
         // AddData Transactions
-        /*String createTransactionsTableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS Transactions (Purchase_Id INTEGER PRIMARY KEY, " +
-                    "ISBN VARCHAR(14) NOT NULL, " + "Customer_Id INTEGER NOT NULL, " +
-                    "Quantity INTEGER NOT NULL, " + "Total_Price smallmoney NOT NULL, " +
-                    "Date DATE NOT NULL, " + "Cashier NVARCHAR(100) NOT NULL)";*/
         public static void AddData(string tableName, string isbn, string customerId, int quantity, float totalPrice, string date, string cashier)
         {
             using (SqliteConnection db =
@@ -114,7 +108,6 @@ namespace BookStore
 
                 if (tableName == "Transactions")
                 {
-
                     insertDataCommand.CommandText = "INSERT INTO Transactions (ISBN, Customer_Id, Quantity, Total_Price, Date, Cashier) " +
                         "VALUES (@ISBN, @Customer_Id, @Quantity, @Total_Price, @Date, @Cashier);";
                     //insertDataCommand.Parameters.AddWithValue("@Purchase_Id", purchaseId);
@@ -130,9 +123,9 @@ namespace BookStore
                 db.Close();
             }
         }
-        public static List<String> SearchItem(string tableName, string searchField, string searchItem)
+        public static List<List<String>> SearchItem(string tableName, string searchField, string searchItem)
         {
-            List<String> entries = new List<string>();
+            List<List<String>> entries = new List<List<String>>();
             using (SqliteConnection db =
                new SqliteConnection($"Filename={dbpath}"))
             {
@@ -150,7 +143,6 @@ namespace BookStore
                         //searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN = @item1 Or Title = @item2 Or Author = @item3);";
                         searchCommand.CommandText = "SELECT * FROM " + tableName + " WHERE (ISBN like '%" + @item1 + "%' Or " +
                             "Title like '%" + @item2 + "%' Or Author like '%" + @item3 + "%') Order by ISBN;";
-
                     }
                     else if (tableName == "Customers")
                     {
@@ -174,29 +166,21 @@ namespace BookStore
                 while (query.Read())
                 {
                     int i = 0;
-                    searchResult = "";
+                    List<string> searchResult = new List<string>();
                     while (i < query.FieldCount)
                     {
-                        if (i == 0)
-                        {
-                            searchResult += query.GetString(i);
-                        }
-                        else
-                        {
-                            searchResult += "," + query.GetString(i);
-                        }
+                        searchResult.Add(query.GetString(i));
                         i++;
                     }
-                    //entries.Add(query.GetString(0) + "," + query.GetString(1) + "," + query.GetString(2) + "," + query.GetString(3) + "," + query.GetString(4));
                     entries.Add(searchResult);
                 }
                 db.Close();
             }
             return entries;
         }
-        public static List<String> SearchItemExact(string tableName, string searchField, string searchItem)
+        public static List<List<string>> SearchItemExact(string tableName, string searchField, string searchItem)
         {
-            List<String> entries = new List<string>();
+            List<List<string>> entries = new List<List<string>>();
             using (SqliteConnection db =
                new SqliteConnection($"Filename={dbpath}"))
             {
@@ -212,17 +196,10 @@ namespace BookStore
                 while (query.Read())
                 {
                     int i = 0;
-                    searchResult = "";
+                    List<string> searchResult = new List<string>();
                     while (i < query.FieldCount)
                     {
-                        if (i == 0)
-                        {
-                            searchResult += query.GetString(i);
-                        }
-                        else
-                        {
-                            searchResult += "," + query.GetString(i);
-                        }
+                        searchResult.Add(query.GetString(i));
                         i++;
                     }
                     entries.Add(searchResult);

@@ -37,8 +37,8 @@ namespace BookStore
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<String> searchResult;
-            searchResult = DataAccess.SearchItem("Books", "ISBN", isbnTextBox.Text);
+            List<List<string>> searchResult;
+            searchResult = DataAccess.SearchItemExact("Books", "ISBN", isbnTextBox.Text);   //ค้นหาว่ามี ISBN ซ้ำรึยัง
             if (!searchResult.Any())
             {
                 DataAccess.AddData("Books", isbnTextBox.Text, titleTextBox.Text, authorTextBox.Text, descriptionTextBox.Text, priceTextBox.Text);
@@ -55,7 +55,7 @@ namespace BookStore
         {
             string searchItem = searchTextBox.Text;
             string searchField = searchList.Text;
-            List<string> searchResult = new List<string>();
+            List<List<string>> searchResult = new List<List<string>>();
 
             if (searchField == "ชื่อหนังสือ")
             {
@@ -81,13 +81,13 @@ namespace BookStore
             else { MessageBox.Show("Search Error."); }
         }
 
-        public void dataSearchShow(List<string> searchResult)
+        public void dataSearchShow(List<List<string>> searchResult)
         {
-            List<String> dataFound = new List<string>();
+            List<List<string>> dataFound = new List<List<string>>();
             int i = 0;
-            foreach (string ee in searchResult)
+            foreach (List<string> searchItem in searchResult)
             {
-                dataFound.Add(ee);
+                dataFound.Add(searchItem);
                 i++;
             }
             if (dataFound.Count == 0)
@@ -99,9 +99,8 @@ namespace BookStore
                 List<DataList> bookslist = new List<DataList>();
                 int numberOfList = dataFound.Count();
                 for (int j = 0; j < numberOfList; j++)
-                {
-                    string[] dataShow = dataFound[j].Split(',');
-                    bookslist.Add(new DataList(dataShow[0], dataShow[1], dataShow[2], dataShow[3], float.Parse(dataShow[4])));
+                {                    
+                    bookslist.Add(new DataList(dataFound[j][0], dataFound[j][1], dataFound[j][2], dataFound[j][3], float.Parse(dataFound[j][4])));
                 }
                 booksListView.ItemsSource = bookslist;
             }
@@ -109,8 +108,8 @@ namespace BookStore
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<String> searchResult;
-            searchResult = DataAccess.SearchItem("Books", "ISBN", isbnTextBox.Text);
+            List<List<string>> searchResult = new List<List<string>>();
+            searchResult = DataAccess.SearchItemExact("Books", "ISBN", isbnTextBox.Text);   //เช็คว่ามี isbn นี้อยู่จริง ก่อนที่จะแก้ไข
             if (!searchResult.Any())
             {
                 MessageBox.Show("Unable to update data.\nISBN: " + isbnTextBox.Text + " not existed.");
