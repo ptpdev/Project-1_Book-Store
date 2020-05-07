@@ -93,10 +93,17 @@
       <DependentUpon>EmployeeRegister.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginSystem.cs" />
+    <Compile Include="PurchaseHistory.xaml.cs">
+      <DependentUpon>PurchaseHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseSummary.xaml.cs">
       <DependentUpon>PurchaseSummary.xaml</DependentUpon>
     </Compile>
-    <Page Include="BookPurchase.xaml">
+    <Page Include="PurchaseHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PurchaseItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,8 +135,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BookPurchase.xaml.cs">
-      <DependentUpon>BookPurchase.xaml</DependentUpon>
+    <Compile Include="PurchaseItem.xaml.cs">
+      <DependentUpon>PurchaseItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="BooksMenu.xaml.cs">
       <DependentUpon>BooksMenu.xaml</DependentUpon>

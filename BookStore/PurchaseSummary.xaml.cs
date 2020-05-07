@@ -19,18 +19,17 @@ namespace BookStore
     /// </summary>
     public partial class PurchaseSummary : Window
     {
-        private string isbn;
+        /*private string isbn;
         private string customerId;
         private int bookquantity;
         private float price;
-        private float totalPrice;
         private string date;
-        private string cashier;
+        private string cashier;*/
         public PurchaseSummary()
         {
 
         }
-        public PurchaseSummary(string isbn, string customerId, int bookquantity, float price, string date, string cashier)
+        /*public PurchaseSummary(string isbn, string customerId, int bookquantity, float price, string date, string cashier)
         {
             InitializeComponent();
             this.isbn = isbn;
@@ -40,7 +39,7 @@ namespace BookStore
             this.date = date;
             this.cashier = cashier;
             //totalPrice = bookquantity * price;
-        }
+        }*/
 
         public PurchaseSummary(List<PurchaseList> purchaseList, PurchaseList order)
         {

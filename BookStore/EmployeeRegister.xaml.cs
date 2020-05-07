@@ -28,18 +28,23 @@ namespace BookStore
             InitializeComponent();
             txtUsername.IsEnabled = false;
             txtUsername.Text = admin;
+            txtEmployeeName.IsEnabled = false;
+            txtEmployeeName.Text = admin;
         }
 
         private void btnEmployeeRegis_Click(object sender, RoutedEventArgs e)
         {
             if (txtPassword.Password == txtPassword2.Password)
             {
-                bool regisStatus = LoginSystem.AddData(txtUsername.Text, txtPassword.Password);
+                bool regisStatus = LoginSystem.AddData(txtUsername.Text, txtPassword.Password, txtEmployeeName.Text);
                 if (regisStatus)
                 {
                     this.Close();
                 }
-                MessageBox.Show("This username already Exists.");                
+                else
+                {
+                    MessageBox.Show("This username already Exists.");
+                }
             }
             else
             {

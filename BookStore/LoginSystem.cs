@@ -28,7 +28,8 @@ namespace BookStore
                 String tableCommand = "CREATE TABLE IF NOT " +
                     "EXISTS UserLogin (Username nvarchar(100) PRIMARY KEY, " +
                     "Salt NVARCHAR(1000) NOT NULL, " +
-                    "Password_Encrypt NVARCHAR(1000) NOT NULL);";
+                    "Password_Encrypt NVARCHAR(1000) NOT NULL, " +
+                    "Name NVARCHAR(100) NOT NULL);";
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
                 createTable.ExecuteReader();
@@ -68,7 +69,7 @@ namespace BookStore
                 return false;        
             }                       
         }
-        public static bool AddData(string username, string password)
+        public static bool AddData(string username, string password, string name)
         {
             if (hasUser(username) == true)
             {
@@ -85,10 +86,11 @@ namespace BookStore
                 insertCommand.Connection = db;
 
                 // Use parameterized query to prevent SQL injection attacks
-                insertCommand.CommandText = "INSERT INTO UserLogin VALUES (@Username, @Salt, @Hash);";
+                insertCommand.CommandText = "INSERT INTO UserLogin VALUES (@Username, @Salt, @Hash, @Name);";
                 insertCommand.Parameters.AddWithValue("@Username", username);
                 insertCommand.Parameters.AddWithValue("@Salt", saltAndHash[0]);
                 insertCommand.Parameters.AddWithValue("@Hash", saltAndHash[1]);
+                insertCommand.Parameters.AddWithValue("@Name", name);
 
                 insertCommand.ExecuteReader();                
                 db.Close();
@@ -144,7 +146,7 @@ namespace BookStore
                 SqliteCommand selectCommand = new SqliteCommand();
                 selectCommand.Connection = db;
 
-                selectCommand.CommandText = "SELECT Salt, Password_Encrypt from UserLogin Where Username = @username";
+                selectCommand.CommandText = "SELECT Salt, Password_Encrypt from UserLogin Where Username = @username;";
                 selectCommand.Parameters.AddWithValue("@username", username);
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
@@ -165,6 +167,31 @@ namespace BookStore
             if (Convert.ToBase64String(hashCheck) == entries[1]) return true;
             
             return false;
+        }
+
+        public static string getEmployee(string username)
+        {
+            string entries;
+
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+                selectCommand.CommandText = "SELECT Name from UserLogin Where Username = @username;";
+                selectCommand.Parameters.AddWithValue("@username", username);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                query.Read();
+                entries = query.GetString(0);
+
+                db.Close();
+            }
+
+            return entries;
         }
     }
 

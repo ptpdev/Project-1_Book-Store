@@ -151,11 +151,6 @@ namespace BookStore
             }
 
         }
-        //public event System.ComponentModel.CancelEventHandler Closing;
-        public void BooksMenu_Closing(object sender, CancelEventArgs e)
-        {
-            MainMenu.changeBookBtn(true);
-        }
 
     }
 }

@@ -17,14 +17,13 @@ namespace BookStore
     /// <summary>
     /// Interaction logic for BookPurchase.xaml
     /// </summary>
-    public partial class BookPurchase : Window
+    public partial class PurchaseItem : Window
     {
 
         private bool bookvalid = false;
         private bool customervalid = false;
         private string isbn;
         private string title;
-        private string customerId;
         private int bookquantity = 1;
         private float price;
         private float sumPrice;
@@ -35,18 +34,20 @@ namespace BookStore
         List<List<string>> searchResult = new List<List<string>>();
         PurchaseList order = new PurchaseList();
 
-        public BookPurchase(string cashier)
+        public PurchaseItem(string username)
         {
             InitializeComponent();
             quantityTxt.Text = "";
-            order.Cashier = cashier;
+            string employeeName = LoginSystem.getEmployee(username);
+            order.Cashier = employeeName;
             totalPrice = 0;
         }
 
         private void isbnSearchBtn_Click(object sender, RoutedEventArgs e)
         {
             string searchItem = isbnTxt.Text;
-            string searchField = "ISBN";            
+            string searchField = "ISBN";
+            bookquantity = 1;
             quantityTxt.Text = bookquantity.ToString();
 
             searchResult = DataAccess.SearchItemExact("Books", searchField, searchItem);
@@ -124,7 +125,6 @@ namespace BookStore
                 order.CustomerName = dataFound[0][1];
                 customervalid = true;
                 order.CustomerId = dataFound[0][0];
-
             }
         }
 
@@ -163,6 +163,8 @@ namespace BookStore
             string year = dateTime.Year.ToString();
             string month = dateTime.Month.ToString();
             string day = dateTime.Day.ToString();
+            string sec = dateTime.Second.ToString();
+            
             if (month.Length == 1)
             {
                 month = "0" + month;
@@ -173,17 +175,11 @@ namespace BookStore
             }
             date = year + "-" + month + "-" + day;
 
-            return date;
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
         private void purchaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            // เอา sumPrice ออกมารวมกันให้ได้
-            //PurchaseList purchaseSum = (PurchaseList)purchaseListView;
-
-            //PurchaseSummary purchaseSummary = new PurchaseSummary(isbn, customerId, bookquantity, price, getDate(), cashier);
-            //PurchaseSummary purchaseSummary = new PurchaseSummary();
-            //purchaseSummary.Show();
             if (customervalid == false)
             {
                 MessageBox.Show("กรุณาใส่รหัสสมาชิก");

@@ -31,7 +31,12 @@ namespace BookStore
             {
                 btnAdmin.Visibility = Visibility.Visible;
             }
+            else
+            {
+                btnAdmin.Visibility = Visibility.Hidden;
+            }
         }
+
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -43,33 +48,31 @@ namespace BookStore
         {
             BooksMenu booksMenu = new BooksMenu();
             booksMenu.Show();
-            bookMenuBtnEnable = false;
-            BooksMgtBtn.IsEnabled = bookMenuBtnEnable;
         }
 
         private void customersMgtBtn_Click(object sender, RoutedEventArgs e)
         {
             CustomersMenu customersMenu = new CustomersMenu();
             customersMenu.Show();
-            customersMgtBtn.IsEnabled = false;
         }
 
         private void buyBtn_Click(object sender, RoutedEventArgs e)
         {
-            BookPurchase bookPurchase = new BookPurchase(username);
+            PurchaseItem bookPurchase = new PurchaseItem(username);
             bookPurchase.Show();
         }
 
-        public static void changeBookBtn(bool isEnable)
-        {
-            //customersMgtBtn.IsEnabled = isEnable;
-            bookMenuBtnEnable = true;
-        }
 
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
             EmployeeRegister employeeRegister = new EmployeeRegister();
             employeeRegister.Show();
+        }
+
+        private void btnPurchaseHistory_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseHistory purchaseHistory = new PurchaseHistory();
+            purchaseHistory.Show();
         }
     }
 

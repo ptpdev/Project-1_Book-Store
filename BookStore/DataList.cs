@@ -26,17 +26,8 @@ namespace BookStore
         private int quantity;
         private float sumPrice;
         private float totalPrice;
-
-        /*public string CustomerId { get; set; }
-        public string CustomerName { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public string ISBN { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
-        public float Price { get; set; }
-        public string Cashier { get; set; }*/
+        private string date;
+        private int purchaseId;
 
         public DataList()
         {
@@ -73,13 +64,13 @@ namespace BookStore
         public int Quantity { get => quantity; set => quantity = value; }
         public float SumPrice { get => sumPrice; set => sumPrice = value; }
         public float TotalPrice { get => totalPrice; set => totalPrice = value; }
+        public string Date { get => date; set => date = value; }
+        public int PurchaseId { get => purchaseId; set => purchaseId = value; }
     }
 
     public class PurchaseList : DataList
     {
-        /*public int Quantity { get; set; }
-        public float SumPrice { get; set; }
-        public float TotalPrice { get; set; }*/
+
         public PurchaseList()
         {
 
@@ -94,4 +85,22 @@ namespace BookStore
             SumPrice = sumPrice;
         }
     } 
+    public class TransactionList : PurchaseList
+    {
+        public TransactionList()
+        {
+
+        }
+
+        public TransactionList(int purchaseId, string isbn, string customerId, int quantity, float sumPrice, string date, string cashier)
+        {
+            PurchaseId = purchaseId;
+            Isbn = isbn;
+            CustomerId = customerId;
+            Quantity = quantity;
+            SumPrice = sumPrice;
+            Date = date;
+            Cashier = cashier;
+        }
+    }
 }

@@ -64,7 +64,6 @@ C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\bin\Debug\System.
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore.csprojAssemblyReference.cache
-C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookPurchase.g.cs
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BooksMenu.g.cs
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\CustomersMenu.g.cs
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\LoginMenuPage.g.cs
@@ -75,7 +74,6 @@ C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\App.g.c
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore_Content.g.cs
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore_MarkupCompile.cache
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore_MarkupCompile.lref
-C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookPurchase.baml
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BooksMenu.baml
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\CustomersMenu.baml
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\LoginMenuPage.baml
@@ -90,3 +88,7 @@ C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookSto
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\BookStore.pdb
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\EmployeeRegister.g.cs
 C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\EmployeeRegister.baml
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\PurchaseItem.g.cs
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\PurchaseItem.baml
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\PurchaseHistory.g.cs
+C:\Users\aong_\Desktop\Born2Dev\Project 1_Book Store\BookStore\obj\Debug\PurchaseHistory.baml

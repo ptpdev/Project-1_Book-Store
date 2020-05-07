@@ -37,6 +37,8 @@ namespace BookStore
         {
             username = usernameBox.Text;
             password = passwordBox.Password;
+
+            loginCounter++;
             if (loginCounter >= 3)
             {
                 MessageBox.Show("System locked due to too many wrong password input");
@@ -46,7 +48,6 @@ namespace BookStore
                 if (LoginSystem.checkPassword(username, password))
                 {
                     MainMenu mainMenu = new MainMenu(username);
-                    //mainMenu.username.Content = "User : " + username;
                     this.NavigationService.Navigate(mainMenu);
                     loginCounter = 0;
                 }
@@ -55,7 +56,7 @@ namespace BookStore
                     MessageBox.Show("User not found or Password incorrect.\n Remaining attempt : " + (2-loginCounter).ToString());
                 }
             }
-            loginCounter++;
+            
         }
 
         private void helpBtn_KeyUp(object sender, KeyEventArgs e)
