@@ -5,13 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BookStore"
       xmlns:CodeDom="clr-namespace:System.CodeDom;assembly=System" x:Class="BookStore.LoginMenu"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="LoginMenu">
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="LoginMenu" Height="500">
 
-    <Grid Background="#FF71DC7A" Margin="0,0,0,-50.4" Height="500" VerticalAlignment="Top">
-
-        <Label x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="724,420,0,48" Width="38" KeyUp="helpBtn_KeyUp"/>
+    <Grid Background="#FF43EB95" Margin="0,0,0,-50.4" Height="500" VerticalAlignment="Top">
         <GroupBox x:Name="loginGroupBox" Header="Login" HorizontalAlignment="Left" Height="199" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.193,0.178" Margin="196,108,0,0">
             <GroupBox.DataContext>
                 <CodeDom:CodeLabeledStatement/>
@@ -22,6 +19,7 @@
         <Label x:Name="passwordLabel" Content="Password" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="80" Margin="242,205,0,0"/>
         <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Height="24" Margin="327,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TabIndex="1"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="24" Margin="327,205,0,0" VerticalAlignment="Top" Width="140" TabIndex="2" KeyDown="passwordBox_KeyDown"/>
+        <Label x:Name="btnCredit" Content="Credit" HorizontalAlignment="Left" Height="34" Margin="710,435,0,0" VerticalAlignment="Top" Width="54" MouseDown="btnCredit_MouseDown"/>
 
     </Grid>
 </Page>

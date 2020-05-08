@@ -4,20 +4,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BookStore"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainMenu">
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="MainMenu" Height="500">
 
-    <Grid Background="#FF7AD1D6" Height="500" Margin="0,0,0,-50.4" VerticalAlignment="Top">
+    <Grid Background="#FF7AD1D6" Margin="0,0,0,-50.4" Height="500" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="500"/>
         </Grid.RowDefinitions>
-        <Button x:Name="customersMgtBtn" Content="จัดการลูกค้า" HorizontalAlignment="Left" Height="38" Margin="274,97,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.698,-0.947" Click="customersMgtBtn_Click"/>
-        <Button x:Name="BooksMgtBtn" x:FieldModifier="public" Content="จัดการหนังสือ" HorizontalAlignment="Left" Height="38" Margin="119,97,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.757,0.484" Click="BooksMgtBtn_Click"/>
-        <Button x:Name="buyBtn" Content="สั่งซื้อหนังสือ" HorizontalAlignment="Left" Height="38" Margin="425,97,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.783,0.695" Click="buyBtn_Click"/>
+        <Button x:Name="customersMgtBtn" Content="จัดการลูกค้า" HorizontalAlignment="Left" Height="38" Margin="250,276,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.698,-0.947" Click="customersMgtBtn_Click"/>
+        <Button x:Name="BooksMgtBtn" x:FieldModifier="public" Content="จัดการหนังสือ" HorizontalAlignment="Left" Height="38" Margin="80,276,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.757,0.484" Click="BooksMgtBtn_Click"/>
+        <Button x:Name="buyBtn" Content="สั่งซื้อหนังสือ" HorizontalAlignment="Left" Height="38" Margin="420,276,0,0" VerticalAlignment="Top" Width="121" BorderThickness="1" RenderTransformOrigin="0.783,0.695" Click="buyBtn_Click"/>
         <Button x:Name="logoutBtn" Content="ออกจากระบบ" HorizontalAlignment="Left" Height="31" Margin="690,23,0,0" VerticalAlignment="Top" Width="83" Click="logoutBtn_Click" RenderTransformOrigin="0.735,-7.927"/>
         <Label x:Name="usernameLabel" Content="User : " HorizontalAlignment="Left" Height="31" Margin="548,23,0,0" VerticalAlignment="Top" Width="119"/>
         <Button x:Name="btnAdmin" Content="For admin" HorizontalAlignment="Left" Height="27" Margin="33,449,0,0" VerticalAlignment="Top" Width="78" Click="btnAdmin_Click"/>
-        <Button x:Name="btnPurchaseHistory" Content="ประวัติการสั่งซื้อ" HorizontalAlignment="Left" Height="38" Margin="584,97,0,0" VerticalAlignment="Top" Width="121" Click="btnPurchaseHistory_Click"/>
+        <Button x:Name="btnPurchaseHistory" Content="ประวัติการสั่งซื้อ" HorizontalAlignment="Left" Height="38" Margin="590,276,0,0" VerticalAlignment="Top" Width="121" Click="btnPurchaseHistory_Click"/>
+        <Image Margin="80,136,599,243" Source="menu-book.png" Stretch="Fill"/>
+        <Image Margin="250,136,429,243" Source="menu-customer.png" Stretch="Fill"/>
+        <Image Margin="420,143,266,243" Source="menu-cart.png" Stretch="Fill"/>
+        <Image Margin="590,136,89,243" Source="menu-history.png" Stretch="Fill"/>
     </Grid>
 </Page>

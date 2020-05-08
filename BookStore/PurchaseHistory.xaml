@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="ประวัติการสั้งซื้อ" Height="368.4" Width="701.6">
+        Title="ประวัติการสั้งซื้อ" Height="400" Width="700" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListView x:Name="tablePurchaseHistory" HorizontalAlignment="Left" Height="318" Margin="10,10,0,0" VerticalAlignment="Top" Width="675">
+        <ListView x:Name="tablePurchaseHistory" HorizontalAlignment="Left" Height="350" Margin="10,10,0,0" VerticalAlignment="Top" Width="675">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>

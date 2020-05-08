@@ -5,27 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
-        Title="จัดการหนังสือ" Height="500" Width="800" ResizeMode="CanMinimize">
-    <Grid Width="800" Height="500" Margin="0,0,-6.4,-80" VerticalAlignment="Top">
-        <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="413,258,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="15"/>
-        <TextBox x:Name="isbnTextBox" HorizontalAlignment="Left" Height="27" Margin="524,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="10" MaxLength="13"/>
-        <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Height="27" Margin="524,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="11"/>
-        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="27" Margin="524,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="13"/>
-        <TextBox x:Name="priceTextBox" HorizontalAlignment="Left" Height="27" Margin="524,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="14"/>
-        <Label x:Name="isbnLabel" Content="ISBN" HorizontalAlignment="Left" Height="27" Margin="413,86,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label x:Name="titleLabel" Content="ชื่อหนังสือ" HorizontalAlignment="Left" Height="27" Margin="413,118,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label x:Name="descriptionLabel" Content="คำอธิบายหนังสือ" HorizontalAlignment="Left" Height="27" Margin="413,184,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label x:Name="priceLabel" Content="ราคา" HorizontalAlignment="Left" Height="27" Margin="413,218,0,0" VerticalAlignment="Top" Width="96"/>
-        <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Height="27" Margin="153,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
-        <Label x:Name="searchLabel" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="26,43,0,0" VerticalAlignment="Top" Width="38"/>
-        <ComboBox x:Name="searchList" HorizontalAlignment="Left" Height="27" Margin="69,43,0,0" VerticalAlignment="Top" Width="79" IsReadOnly="True" IsSynchronizedWithCurrentItem="False"/>
-        <Button x:Name="searchBtn" Content="ค้นหา" HorizontalAlignment="Left" Height="26" Margin="325,43,0,0" VerticalAlignment="Top" Width="45" Click="searchBtn_Click"/>
-        <ListView Margin="69,86,430,208" x:Name="booksListView" PreviewMouseLeftButtonDown="booksListView_PreviewMouseLeftButtonDown">
+        Title="จัดการหนังสือ" Height="400" Width="900" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid Height="372" Margin="10,0,3.6,-1.6" VerticalAlignment="Top">
+        <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="511,247,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="15"/>
+        <TextBox x:Name="isbnTextBox" HorizontalAlignment="Left" Height="27" Margin="622,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="10" MaxLength="13"/>
+        <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Height="27" Margin="622,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="11"/>
+        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Height="54" Margin="622,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="13"/>
+        <TextBox x:Name="priceTextBox" HorizontalAlignment="Left" Height="27" Margin="622,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="14"/>
+        <Label x:Name="isbnLabel" Content="ISBN" HorizontalAlignment="Left" Height="27" Margin="511,43,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="titleLabel" Content="ชื่อหนังสือ" HorizontalAlignment="Left" Height="27" Margin="511,76,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="descriptionLabel" Content="คำอธิบายหนังสือ" HorizontalAlignment="Left" Height="27" Margin="511,142,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="priceLabel" Content="ราคา" HorizontalAlignment="Left" Height="27" Margin="511,201,0,0" VerticalAlignment="Top" Width="96"/>
+        <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Height="26" Margin="179,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <Label x:Name="searchLabel" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="48,43,0,0" VerticalAlignment="Top" Width="38"/>
+        <ComboBox x:Name="searchList" HorizontalAlignment="Left" Height="26" Margin="91,43,0,0" VerticalAlignment="Top" Width="83" IsReadOnly="True" IsSynchronizedWithCurrentItem="False"/>
+        <Button x:Name="searchBtn" Content="ค้นหา" HorizontalAlignment="Left" Height="26" Margin="341,43,0,0" VerticalAlignment="Top" Width="72" Click="searchBtn_Click" RenderTransformOrigin="0.107,0.431"/>
+        <ListView Margin="0,86,467,91" x:Name="booksListView" PreviewMouseLeftButtonDown="booksListView_PreviewMouseLeftButtonDown" HorizontalAlignment="Right" Width="365">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ISBN" Width="100" DisplayMemberBinding="{Binding Isbn}" />
-                    <GridViewColumn Header="ชื่อหนังสือ" Width="100" DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Header="ชื่อผู้แต่ง" Width="100" DisplayMemberBinding="{Binding Author}" />
+                    <GridViewColumn Header="ชื่อหนังสือ" Width="140" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="ชื่อผู้แต่ง" Width="120" DisplayMemberBinding="{Binding Author}" />
                     <GridViewColumn Header="คำอธิบาย" Width="100" DisplayMemberBinding="{Binding Description}" />
                     <GridViewColumn Header="ราคา" Width="100" DisplayMemberBinding="{Binding Price}" />
                     <GridView.ColumnHeaderContainerStyle>
@@ -36,10 +36,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="authorTextBox" HorizontalAlignment="Left" Height="27" Margin="524,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="12"/>
-        <Label x:Name="authorLabel" Content="ชื่อผู้แต่ง" HorizontalAlignment="Left" Height="27" Margin="413,151,0,0" VerticalAlignment="Top" Width="96"/>
-        <Button x:Name="editBtn" Content="แก้ไขข้อมูล" HorizontalAlignment="Left" Height="34" Margin="524,258,0,0" VerticalAlignment="Top" Width="85" TabIndex="15" Click="editBtn_Click"/>
-        <Button x:Name="deleteBtn" Content="ลบข้อมูล" HorizontalAlignment="Left" Height="34" Margin="633,258,0,0" VerticalAlignment="Top" Width="85" Click="deleteBtn_Click" TabIndex="15"/>
+        <TextBox x:Name="authorTextBox" HorizontalAlignment="Left" Height="27" Margin="622,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="12"/>
+        <Label x:Name="authorLabel" Content="ชื่อผู้แต่ง" HorizontalAlignment="Left" Height="27" Margin="511,109,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="editBtn" Content="แก้ไขข้อมูล" HorizontalAlignment="Left" Height="34" Margin="622,247,0,0" VerticalAlignment="Top" Width="85" TabIndex="15" Click="editBtn_Click"/>
+        <Button x:Name="deleteBtn" Content="ลบข้อมูล" HorizontalAlignment="Left" Height="34" Margin="731,247,0,0" VerticalAlignment="Top" Width="85" Click="deleteBtn_Click" TabIndex="15"/>
 
     </Grid>
 </Window>

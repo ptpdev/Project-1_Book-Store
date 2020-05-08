@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="Ace Book Store" Height="540" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Width="800" Margin="0,0,0,0">
-        <Frame x:Name="mainFrame" Content="" NavigationUIVisibility="Hidden" Width="800" Height="500" VerticalAlignment="Top"/>
+        <Frame x:Name="mainFrame" Content="" NavigationUIVisibility="Hidden" Width="800" Height="510" VerticalAlignment="Top"/>
     </Grid>
 </Window>

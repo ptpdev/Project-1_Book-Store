@@ -22,7 +22,7 @@ namespace BookStore
     {
         private string username;
         private string password;
-        private int loginCounter = 0;
+
         public LoginMenu()
         {
             InitializeComponent();
@@ -38,31 +38,15 @@ namespace BookStore
             username = usernameBox.Text;
             password = passwordBox.Password;
 
-            loginCounter++;
-            if (loginCounter >= 3)
+            if (LoginSystem.checkPassword(username, password))
             {
-                MessageBox.Show("System locked due to too many wrong password input");
+                MainMenu mainMenu = new MainMenu(username);
+                this.NavigationService.Navigate(mainMenu);                    
             }
             else
             {
-                if (LoginSystem.checkPassword(username, password))
-                {
-                    MainMenu mainMenu = new MainMenu(username);
-                    this.NavigationService.Navigate(mainMenu);
-                    loginCounter = 0;
-                }
-                else
-                {
-                    MessageBox.Show("User not found or Password incorrect.\n Remaining attempt : " + (2-loginCounter).ToString());
-                }
-            }
-            
-        }
-
-        private void helpBtn_KeyUp(object sender, KeyEventArgs e)
-        {
-            loginCounter = 0;
-            MessageBox.Show("Reset system locked.");
+                MessageBox.Show("Incorrect password");
+            }    
         }
 
         private void passwordBox_KeyDown(object sender, KeyEventArgs e)
@@ -71,6 +55,18 @@ namespace BookStore
             {
                 loginBtn_Click(this, null);
             }
+        }
+
+        private void btnCredit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(
+                "_______________________CREDIT_______________________\n\n" +
+                "                    PITIPHAT  PHETLERTANAN             \n" +
+                "                       aongst15@gmail.com\n\n" +
+                "Icon made by Freepik from www.flaticon.com\n" +
+                "Icon made by iconixar from www.flaticon.com\n" +                
+                "Icon made by mynamepong from www.flaticon.com\n\n" +
+                "_____________________________________________________");
         }
     }
 }
