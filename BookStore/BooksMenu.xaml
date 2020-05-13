@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookStore"
         mc:Ignorable="d"
         Title="จัดการหนังสือ" Height="400" Width="900" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
-    <Grid Height="372" Margin="10,0,3.6,-1.6" VerticalAlignment="Top">
+    <Grid Height="367" Margin="0,0,3.6,0" VerticalAlignment="Top">
         <Button x:Name="addBtn" Content="เพิ่มข้อมูล" HorizontalAlignment="Left" Height="34" Margin="511,247,0,0" VerticalAlignment="Top" Width="85" Click="addBtn_Click" TabIndex="15"/>
         <TextBox x:Name="isbnTextBox" HorizontalAlignment="Left" Height="27" Margin="622,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="10" MaxLength="13"/>
         <TextBox x:Name="titleTextBox" HorizontalAlignment="Left" Height="27" Margin="622,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TabIndex="11"/>
@@ -20,7 +20,7 @@
         <Label x:Name="searchLabel" Content="ค้นหา" HorizontalAlignment="Left" Height="27" Margin="48,43,0,0" VerticalAlignment="Top" Width="38"/>
         <ComboBox x:Name="searchList" HorizontalAlignment="Left" Height="26" Margin="91,43,0,0" VerticalAlignment="Top" Width="83" IsReadOnly="True" IsSynchronizedWithCurrentItem="False"/>
         <Button x:Name="searchBtn" Content="ค้นหา" HorizontalAlignment="Left" Height="26" Margin="341,43,0,0" VerticalAlignment="Top" Width="72" Click="searchBtn_Click" RenderTransformOrigin="0.107,0.431"/>
-        <ListView Margin="0,86,467,91" x:Name="booksListView" PreviewMouseLeftButtonDown="booksListView_PreviewMouseLeftButtonDown" HorizontalAlignment="Right" Width="365">
+        <ListView Margin="48,87,0,90" x:Name="booksListView" PreviewMouseLeftButtonDown="booksListView_PreviewMouseLeftButtonDown" HorizontalAlignment="Left" Width="365">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ISBN" Width="100" DisplayMemberBinding="{Binding Isbn}" />
